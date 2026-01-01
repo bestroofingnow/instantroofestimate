@@ -1,85 +1,134 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { MapPin, Search, Loader2 } from 'lucide-react';
 
-interface AddressInputProps {
-  onAddressSelect: (address: string, lat: number, lng: number, placeDetails: google.maps.places.PlaceResult) => void;
-  isLoading?: boolean;
+interface Prediction {
+  place_id: string;
+  description: string;
+  main_text: string;
+  secondary_text: string;
 }
 
-declare global {
-  interface Window {
-    google: typeof google;
-    initGooglePlaces: () => void;
-  }
+interface PlaceDetails {
+  formatted_address: string;
+  lat: number;
+  lng: number;
+  city: string;
+  state: string;
+  postalCode: string;
+}
+
+interface AddressInputProps {
+  onAddressSelect: (address: string, lat: number, lng: number, placeDetails: PlaceDetails) => void;
+  isLoading?: boolean;
 }
 
 export function AddressInput({ onAddressSelect, isLoading = false }: AddressInputProps) {
   const [address, setAddress] = useState('');
-  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+  const [predictions, setPredictions] = useState<Prediction[]>([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
-  const initAutocomplete = useCallback(() => {
-    if (!inputRef.current || !window.google) return;
+  // Fetch autocomplete predictions from our server
+  const fetchPredictions = async (input: string) => {
+    if (input.length < 3) {
+      setPredictions([]);
+      return;
+    }
 
-    autocompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, {
-      types: ['address'],
-      componentRestrictions: { country: 'us' },
-      fields: ['formatted_address', 'geometry', 'address_components'],
-    });
+    setIsSearching(true);
+    try {
+      const res = await fetch(`/api/places-autocomplete?input=${encodeURIComponent(input)}`);
+      const data = await res.json();
+      setPredictions(data.predictions || []);
+      setShowDropdown(true);
+    } catch (error) {
+      console.error('Autocomplete error:', error);
+      setPredictions([]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
 
-    autocompleteRef.current.addListener('place_changed', () => {
-      const place = autocompleteRef.current?.getPlace();
+  // Debounced input handler
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setAddress(value);
+    setSelectedIndex(-1);
 
-      if (place?.geometry?.location && place.formatted_address) {
-        const lat = place.geometry.location.lat();
-        const lng = place.geometry.location.lng();
-        setAddress(place.formatted_address);
-        onAddressSelect(place.formatted_address, lat, lng, place);
+    // Debounce the API call
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+    debounceRef.current = setTimeout(() => {
+      fetchPredictions(value);
+    }, 300);
+  };
+
+  // Handle selection of a prediction
+  const handleSelect = async (prediction: Prediction) => {
+    setAddress(prediction.description);
+    setShowDropdown(false);
+    setPredictions([]);
+
+    try {
+      const res = await fetch(`/api/places-details?place_id=${encodeURIComponent(prediction.place_id)}`);
+      const details: PlaceDetails = await res.json();
+
+      if (details.lat && details.lng) {
+        onAddressSelect(details.formatted_address, details.lat, details.lng, details);
       }
-    });
-  }, [onAddressSelect]);
+    } catch (error) {
+      console.error('Place details error:', error);
+    }
+  };
 
+  // Keyboard navigation
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!showDropdown || predictions.length === 0) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev < predictions.length - 1 ? prev + 1 : prev));
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (selectedIndex >= 0 && predictions[selectedIndex]) {
+          handleSelect(predictions[selectedIndex]);
+        }
+        break;
+      case 'Escape':
+        setShowDropdown(false);
+        break;
+    }
+  };
+
+  // Close dropdown when clicking outside
   useEffect(() => {
-    // Check if Google Maps is already loaded
-    if (window.google?.maps?.places) {
-      setIsScriptLoaded(true);
-      initAutocomplete();
-      return;
-    }
-
-    // Load Google Maps script
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-    if (!apiKey) {
-      console.error('Google API key not found');
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
-    script.async = true;
-    script.defer = true;
-
-    script.onload = () => {
-      setIsScriptLoaded(true);
-      initAutocomplete();
-    };
-
-    script.onerror = () => {
-      console.error('Failed to load Google Maps script');
-    };
-
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup listener if component unmounts
-      if (autocompleteRef.current) {
-        google.maps.event.clearInstanceListeners(autocompleteRef.current);
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(e.target as Node)
+      ) {
+        setShowDropdown(false);
       }
     };
-  }, [initAutocomplete]);
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <div className="relative w-full max-w-2xl mx-auto">
@@ -91,9 +140,12 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
           ref={inputRef}
           type="text"
           value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder={isScriptLoaded ? "Enter your home address..." : "Loading..."}
-          disabled={!isScriptLoaded || isLoading}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          onFocus={() => predictions.length > 0 && setShowDropdown(true)}
+          placeholder="Enter your home address..."
+          disabled={isLoading}
+          autoComplete="off"
           className="w-full pl-12 pr-32 py-4 text-lg border-2 border-slate-200 rounded-xl
                      focus:border-blue-500 focus:ring-4 focus:ring-blue-100
                      disabled:bg-slate-50 disabled:cursor-not-allowed
@@ -112,6 +164,11 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
                 <Loader2 className="h-4 w-4 animate-spin" />
                 <span>Loading...</span>
               </>
+            ) : isSearching ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                <span>Searching...</span>
+              </>
             ) : (
               <>
                 <Search className="h-4 w-4" />
@@ -121,6 +178,32 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
           </button>
         </div>
       </div>
+
+      {/* Autocomplete Dropdown */}
+      {showDropdown && predictions.length > 0 && (
+        <div
+          ref={dropdownRef}
+          className="absolute z-50 w-full mt-2 bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden"
+        >
+          {predictions.map((prediction, index) => (
+            <button
+              key={prediction.place_id}
+              type="button"
+              onClick={() => handleSelect(prediction)}
+              className={`w-full px-4 py-3 text-left flex items-start gap-3 transition-colors
+                ${index === selectedIndex ? 'bg-blue-50' : 'hover:bg-slate-50'}
+                ${index !== 0 ? 'border-t border-slate-100' : ''}`}
+            >
+              <MapPin className="h-5 w-5 text-slate-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <div className="font-medium text-slate-900">{prediction.main_text}</div>
+                <div className="text-sm text-slate-500">{prediction.secondary_text}</div>
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
+
       <p className="text-sm text-slate-500 mt-2 text-center">
         Start typing your address and select from the dropdown
       </p>

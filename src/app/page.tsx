@@ -5,6 +5,15 @@ import { useRouter } from 'next/navigation';
 import { AddressInput } from '@/components/AddressInput';
 import { Shield, Clock, DollarSign, CheckCircle, Star } from 'lucide-react';
 
+interface PlaceDetails {
+  formatted_address: string;
+  lat: number;
+  lng: number;
+  city: string;
+  state: string;
+  postalCode: string;
+}
+
 export default function HomePage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -13,35 +22,18 @@ export default function HomePage() {
     address: string,
     lat: number,
     lng: number,
-    placeDetails: google.maps.places.PlaceResult
+    placeDetails: PlaceDetails
   ) => {
     setIsLoading(true);
-
-    // Extract address components
-    let city = '';
-    let state = '';
-    let postalCode = '';
-
-    placeDetails.address_components?.forEach((component) => {
-      if (component.types.includes('locality')) {
-        city = component.long_name;
-      }
-      if (component.types.includes('administrative_area_level_1')) {
-        state = component.short_name;
-      }
-      if (component.types.includes('postal_code')) {
-        postalCode = component.long_name;
-      }
-    });
 
     // Store in session storage for the calculating page
     sessionStorage.setItem('addressData', JSON.stringify({
       address,
       lat,
       lng,
-      city,
-      state,
-      postalCode,
+      city: placeDetails.city,
+      state: placeDetails.state,
+      postalCode: placeDetails.postalCode,
     }));
 
     // Navigate to calculating page
