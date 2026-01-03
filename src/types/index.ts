@@ -87,6 +87,7 @@ export interface GHLWebhookPayload {
   tags: string[];
   customField: {
     roof_square_feet: number;
+    roof_squares: number;
     estimate_low: number;
     estimate_mid: number;
     estimate_high: number;

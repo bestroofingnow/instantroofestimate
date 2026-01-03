@@ -17,6 +17,7 @@ export function buildGHLPayload(
     tags: ['instant-estimate', 'website-lead', 'roof-replacement'],
     customField: {
       roof_square_feet: estimate.roofSqFt,
+      roof_squares: estimate.squares,
       estimate_low: estimate.estimate.low,
       estimate_mid: estimate.estimate.mid,
       estimate_high: estimate.estimate.high,
