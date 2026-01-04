@@ -76,7 +76,7 @@ export const staticBlogPosts: BlogPost[] = [
 <p><strong>Popular cities:</strong> <a href="/roof-estimate/charlotte-nc">Charlotte</a> | <a href="/roof-estimate/lake-norman-nc">Lake Norman</a> | <a href="/roof-estimate/huntersville-nc">Huntersville</a> | <a href="/roof-estimate/mooresville-nc">Mooresville</a> | <a href="/roof-estimate/fort-mill-sc">Fort Mill</a></p>
 </article>
 `,
-    featuredImage: '/blog/roof-replacement-guide.jpg',
+    featuredImage: 'https://images.unsplash.com/photo-1632759145351-1d592919f522?w=800&q=80',
     author: 'Instant Roof Estimate',
     publishedAt: '2025-01-03T12:00:00Z',
     categories: ['Guides', 'Costs'],
@@ -152,7 +152,7 @@ export const staticBlogPosts: BlogPost[] = [
 <p><strong>Get estimates for:</strong> <a href="/roof-estimate/charlotte-nc">Charlotte</a> | <a href="/roof-estimate/concord-nc">Concord</a> | <a href="/roof-estimate/gastonia-nc">Gastonia</a> | <a href="/roof-estimate/rock-hill-sc">Rock Hill</a></p>
 </article>
 `,
-    featuredImage: '/blog/repair-vs-replace.jpg',
+    featuredImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
     author: 'Instant Roof Estimate',
     publishedAt: '2025-01-02T10:00:00Z',
     categories: ['Guides', 'Maintenance'],
@@ -244,7 +244,7 @@ export const staticBlogPosts: BlogPost[] = [
 <p><strong>Popular locations:</strong> <a href="/roof-estimate/charlotte-nc">Charlotte</a> | <a href="/roof-estimate/lake-norman-nc">Lake Norman</a> | <a href="/roof-estimate/houston-tx">Houston</a> | <a href="/roof-estimate/phoenix-az">Phoenix</a> | <a href="/roof-estimate/miami-fl">Miami</a></p>
 </article>
 `,
-    featuredImage: '/blog/roofing-materials-comparison.jpg',
+    featuredImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
     author: 'Instant Roof Estimate',
     publishedAt: '2025-01-01T08:00:00Z',
     categories: ['Materials', 'Guides'],
@@ -364,7 +364,7 @@ export const staticBlogPosts: BlogPost[] = [
 <p><strong>Get estimates for:</strong> <a href="/roof-estimate/charlotte-nc">Charlotte</a> | <a href="/roof-estimate/concord-nc">Concord</a> | <a href="/roof-estimate/rock-hill-sc">Rock Hill</a> | <a href="/roof-estimate/fort-mill-sc">Fort Mill</a></p>
 </article>
 `,
-    featuredImage: '/blog/choosing-contractor.jpg',
+    featuredImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
     author: 'Instant Roof Estimate',
     publishedAt: '2024-12-28T14:00:00Z',
     categories: ['Guides', 'Tips'],
