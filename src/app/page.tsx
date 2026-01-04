@@ -266,6 +266,36 @@ export default function HomePage() {
               <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
             </div>
           </div>
+          {/* Location Links */}
+          <div className="border-t border-slate-800 mt-8 pt-8">
+            <h3 className="text-white font-semibold text-center mb-4">Get Roof Estimates in Top Cities</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 text-sm text-center">
+              <a href="/roof-estimate/charlotte-nc" className="hover:text-white transition-colors">Charlotte, NC</a>
+              <a href="/roof-estimate/lake-norman-nc" className="hover:text-white transition-colors">Lake Norman, NC</a>
+              <a href="/roof-estimate/houston-tx" className="hover:text-white transition-colors">Houston, TX</a>
+              <a href="/roof-estimate/dallas-tx" className="hover:text-white transition-colors">Dallas, TX</a>
+              <a href="/roof-estimate/phoenix-az" className="hover:text-white transition-colors">Phoenix, AZ</a>
+              <a href="/roof-estimate/los-angeles-ca" className="hover:text-white transition-colors">Los Angeles, CA</a>
+              <a href="/roof-estimate/san-diego-ca" className="hover:text-white transition-colors">San Diego, CA</a>
+              <a href="/roof-estimate/denver-co" className="hover:text-white transition-colors">Denver, CO</a>
+              <a href="/roof-estimate/miami-fl" className="hover:text-white transition-colors">Miami, FL</a>
+              <a href="/roof-estimate/tampa-fl" className="hover:text-white transition-colors">Tampa, FL</a>
+              <a href="/roof-estimate/orlando-fl" className="hover:text-white transition-colors">Orlando, FL</a>
+              <a href="/roof-estimate/jacksonville-fl" className="hover:text-white transition-colors">Jacksonville, FL</a>
+              <a href="/roof-estimate/atlanta-ga" className="hover:text-white transition-colors">Atlanta, GA</a>
+              <a href="/roof-estimate/chicago-il" className="hover:text-white transition-colors">Chicago, IL</a>
+              <a href="/roof-estimate/indianapolis-in" className="hover:text-white transition-colors">Indianapolis, IN</a>
+              <a href="/roof-estimate/kansas-city-mo" className="hover:text-white transition-colors">Kansas City, MO</a>
+              <a href="/roof-estimate/las-vegas-nv" className="hover:text-white transition-colors">Las Vegas, NV</a>
+              <a href="/roof-estimate/columbus-oh" className="hover:text-white transition-colors">Columbus, OH</a>
+              <a href="/roof-estimate/oklahoma-city-ok" className="hover:text-white transition-colors">Oklahoma City, OK</a>
+              <a href="/roof-estimate/portland-or" className="hover:text-white transition-colors">Portland, OR</a>
+              <a href="/roof-estimate/philadelphia-pa" className="hover:text-white transition-colors">Philadelphia, PA</a>
+              <a href="/roof-estimate/seattle-wa" className="hover:text-white transition-colors">Seattle, WA</a>
+              <a href="/roof-estimate/nashville-tn" className="hover:text-white transition-colors">Nashville, TN</a>
+              <a href="/roof-estimate/memphis-tn" className="hover:text-white transition-colors">Memphis, TN</a>
+            </div>
+          </div>
           <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm">
             <p>&copy; {new Date().getFullYear()} InstantRoofEstimate.ai. All rights reserved.</p>
           </div>
