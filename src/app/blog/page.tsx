@@ -124,23 +124,68 @@ export default async function BlogPage() {
         <main className="py-16">
           <div className="container mx-auto px-4">
             {posts.length === 0 ? (
-              <div className="max-w-2xl mx-auto text-center">
-                <div className="bg-white rounded-2xl shadow-lg p-12">
-                  <BookOpen className="w-16 h-16 text-slate-300 mx-auto mb-6" />
-                  <h2 className="text-2xl font-bold text-slate-900 mb-4">
-                    Blog Coming Soon
+              <div className="max-w-4xl mx-auto">
+                {/* Coming Soon Card */}
+                <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center mb-12">
+                  <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <BookOpen className="w-10 h-10 text-blue-600" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                    Expert Roofing Content Coming Soon
                   </h2>
-                  <p className="text-slate-600 mb-8">
-                    We are working on creating valuable content to help you make informed decisions
-                    about your roofing project. Check back soon for expert tips and guides.
+                  <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+                    We&apos;re preparing in-depth guides, cost breakdowns, and expert advice to help
+                    homeowners make informed roofing decisions. In the meantime, get your free
+                    instant roof estimate.
                   </p>
                   <Link
                     href="/"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors text-lg"
                   >
                     Get Your Free Roof Estimate
                     <ArrowRight className="w-5 h-5" />
                   </Link>
+                </div>
+
+                {/* Topics Preview */}
+                <h3 className="text-2xl font-bold text-slate-900 text-center mb-8">
+                  Topics We&apos;ll Cover
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {[
+                    {
+                      title: 'Roof Replacement Costs',
+                      description: 'Detailed cost breakdowns by material, location, and roof size to help you budget effectively.',
+                    },
+                    {
+                      title: 'Roofing Materials Guide',
+                      description: 'Compare asphalt shingles, metal roofing, tile, and more to find the best fit for your home.',
+                    },
+                    {
+                      title: 'Repair vs. Replacement',
+                      description: 'Learn when it makes sense to repair your roof and when full replacement is the better investment.',
+                    },
+                    {
+                      title: 'Finding a Contractor',
+                      description: 'Tips for vetting roofing contractors, getting quotes, and avoiding common scams.',
+                    },
+                    {
+                      title: 'Insurance Claims',
+                      description: 'Navigate the roof insurance claim process and understand what&apos;s covered.',
+                    },
+                    {
+                      title: 'Maintenance Tips',
+                      description: 'Extend your roof&apos;s lifespan with proper maintenance and seasonal inspections.',
+                    },
+                  ].map((topic) => (
+                    <div
+                      key={topic.title}
+                      className="bg-white rounded-xl p-6 border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all"
+                    >
+                      <h4 className="font-semibold text-slate-900 mb-2">{topic.title}</h4>
+                      <p className="text-slate-600 text-sm">{topic.description}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             ) : (
