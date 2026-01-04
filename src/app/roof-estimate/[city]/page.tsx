@@ -4,8 +4,10 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MapPin, DollarSign, Sun, Shield, Clock, CheckCircle } from 'lucide-react';
 import { getLocationBySlug, getAllLocationSlugs, formatCurrency, LocationData } from '@/lib/locations';
+import { generateLocationFaqs } from '@/lib/locationFaqs';
 import { BreadcrumbSchema, LocalBusinessSchema } from '@/components/StructuredData';
 import { LocationAddressForm } from '@/components/LocationAddressForm';
+import { LocationFAQSection, LocationFAQSchema } from '@/components/LocationFAQSection';
 
 interface PageProps {
   params: Promise<{ city: string }>;
@@ -101,11 +103,15 @@ export default async function LocationPage({ params }: PageProps) {
     { name: `${location.city}, ${location.stateAbbr}`, url: `https://instantroofestimate.ai/roof-estimate/${location.slug}` },
   ];
 
+  // Generate location-specific FAQs
+  const locationFaqs = generateLocationFaqs(location);
+
   return (
     <>
       <BreadcrumbSchema items={breadcrumbs} />
       <LocalBusinessSchema />
       <LocationServiceSchema location={location} />
+      <LocationFAQSchema faqs={locationFaqs} />
 
       <div className="min-h-screen bg-slate-50">
         {/* Header */}
@@ -286,6 +292,13 @@ export default async function LocationPage({ params }: PageProps) {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <LocationFAQSection
+          faqs={locationFaqs}
+          cityName={location.city}
+          stateAbbr={location.stateAbbr}
+        />
 
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
