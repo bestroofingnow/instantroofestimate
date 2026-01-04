@@ -250,6 +250,7 @@ export function ProductSchema() {
     '@type': 'Product',
     name: 'Free Instant Roof Estimate',
     description: 'Get an instant, accurate roof replacement estimate using satellite imagery. Free, fast, and no obligation.',
+    image: 'https://instantroofestimate.ai/logo.png',
     brand: {
       '@type': 'Brand',
       name: 'Instant Roof Estimate',
