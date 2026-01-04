@@ -3,33 +3,62 @@ import { fetchBlogPosts } from '@/lib/blog';
 
 // Top cities for roofing services - for location-based SEO pages
 const topCities = [
+  // Texas
   'houston-tx',
   'dallas-tx',
   'san-antonio-tx',
   'austin-tx',
+  'fort-worth-tx',
+  // Arizona
   'phoenix-az',
+  // California
   'los-angeles-ca',
   'san-diego-ca',
+  // Colorado
   'denver-co',
+  // Florida
   'miami-fl',
   'tampa-fl',
   'orlando-fl',
   'jacksonville-fl',
+  // Georgia
   'atlanta-ga',
+  // Illinois
   'chicago-il',
+  // Indiana
   'indianapolis-in',
+  // Missouri
   'kansas-city-mo',
+  // Nevada
   'las-vegas-nv',
+  // North Carolina - Charlotte Metro
   'charlotte-nc',
+  'concord-nc',
+  'gastonia-nc',
+  'huntersville-nc',
+  'mooresville-nc',
+  'kannapolis-nc',
+  'indian-trail-nc',
+  'matthews-nc',
+  'hickory-nc',
+  'statesville-nc',
+  'monroe-nc',
   'raleigh-nc',
+  // South Carolina - Charlotte Metro
+  'rock-hill-sc',
+  'fort-mill-sc',
+  // Ohio
   'columbus-oh',
+  // Oklahoma
   'oklahoma-city-ok',
+  // Oregon
   'portland-or',
+  // Pennsylvania
   'philadelphia-pa',
+  // Tennessee
   'nashville-tn',
   'memphis-tn',
-  'san-antonio-tx',
-  'fort-worth-tx',
+  // Washington
   'seattle-wa',
 ];
 
