@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MapPin, DollarSign, Sun, Shield, Clock, CheckCircle } from 'lucide-react';
 import { getLocationBySlug, getAllLocationSlugs, formatCurrency, LocationData, getNearbyCities, getCitiesInState } from '@/lib/locations';
+import { getNeighborhoodsByCity } from '@/lib/neighborhoods';
 import { generateLocationFaqs } from '@/lib/locationFaqs';
 import { generateLocationContent } from '@/lib/locationContent';
 import { getCityExtendedData } from '@/lib/cityData';
@@ -116,6 +117,9 @@ export default async function LocationPage({ params }: PageProps) {
 
   // Get nearby cities for internal linking
   const nearbyCities = getNearbyCities(location.slug, 6);
+
+  // Get neighborhoods for this city (if any exist)
+  const cityNeighborhoods = getNeighborhoodsByCity(location.slug);
 
   return (
     <>
@@ -324,6 +328,37 @@ export default async function LocationPage({ params }: PageProps) {
             currentCity={location.city}
             currentState={location.state}
           />
+        )}
+
+        {/* Neighborhoods Section */}
+        {cityNeighborhoods.length > 0 && (
+          <section className="py-16 bg-white border-t border-slate-200">
+            <div className="container mx-auto px-4">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-10">
+                  <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                    {location.city} Neighborhoods We Serve
+                  </h2>
+                  <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Get hyper-local roof estimates for your specific {location.city} neighborhood
+                  </p>
+                </div>
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {cityNeighborhoods.map((neighborhood) => (
+                    <Link
+                      key={neighborhood.slug}
+                      href={`/roof-estimate/${location.slug}/${neighborhood.slug}`}
+                      className="flex items-center gap-2 p-4 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-colors group border border-slate-200 hover:border-blue-300"
+                    >
+                      <MapPin className="w-4 h-4 text-slate-400 group-hover:text-blue-500 flex-shrink-0" />
+                      <span className="font-medium">{neighborhood.name}</span>
+                      <ArrowRight className="w-4 h-4 ml-auto text-slate-300 group-hover:text-blue-500" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
         )}
 
         {/* CTA Section */}

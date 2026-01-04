@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { locations } from '@/lib/locations';
 import { stateData } from '@/lib/stateData';
 import { fetchBlogPosts } from '@/lib/blog';
+import { neighborhoods } from '@/lib/neighborhoods';
 
 const BASE_URL = 'https://instantroofestimate.ai';
 
@@ -65,7 +66,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // 4. Blog posts (from CMS when available)
+  // 4. Neighborhood pages - hyper-local SEO pages
+  const neighborhoodPages: MetadataRoute.Sitemap = neighborhoods.map((neighborhood) => ({
+    url: `${BASE_URL}/roof-estimate/${neighborhood.citySlug}/${neighborhood.slug}`,
+    lastModified: STATIC_LAST_MOD,
+    changeFrequency: 'monthly' as const,
+    priority: 0.65,
+  }));
+
+  // 5. Blog posts (from CMS when available)
   let blogPages: MetadataRoute.Sitemap = [];
   try {
     const posts = await fetchBlogPosts();
@@ -84,6 +93,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticPages,
     ...statePages,
     ...locationPages,
+    ...neighborhoodPages,
     ...blogPages,
   ];
 }
