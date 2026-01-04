@@ -2,11 +2,38 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Home, ArrowRight, CheckCircle, Phone, Clock, Shield, ChevronRight } from 'lucide-react';
-import { neighborhoods, getNeighborhood, getNeighborhoodsByCity } from '@/lib/neighborhoods';
+import { MapPin, Home, ArrowRight, CheckCircle, Phone, Clock, Shield, ChevronRight, DollarSign, HelpCircle, Wrench, Star } from 'lucide-react';
+import { neighborhoods, getNeighborhood, getNeighborhoodsByCity, NeighborhoodData } from '@/lib/neighborhoods';
 import { locations } from '@/lib/locations';
 import { LocationAddressForm } from '@/components/LocationAddressForm';
 import { BreadcrumbSchema } from '@/components/StructuredData';
+
+// Generate neighborhood-specific FAQs
+function generateNeighborhoodFAQs(neighborhood: NeighborhoodData, cityData: typeof locations[0] | undefined) {
+  const avgCost = cityData ? cityData.avgRoofCost.mid : 12000;
+  return [
+    {
+      question: `How much does a new roof cost in ${neighborhood.name}?`,
+      answer: `Roof replacement costs in ${neighborhood.name}, ${neighborhood.city} typically range from $${(avgCost * 0.7).toLocaleString()} to $${(avgCost * 1.5).toLocaleString()} depending on your home's size, roof complexity, and material choice. ${neighborhood.housingTypes[0]} homes in the area often fall in the mid-range of these estimates.`
+    },
+    {
+      question: `What roofing materials are best for ${neighborhood.name} homes?`,
+      answer: `For ${neighborhood.name} homes, we recommend materials suited to the local ${neighborhood.characteristics.includes('Historic') || neighborhood.characteristics.some(c => c.toLowerCase().includes('historic')) ? 'historic character and' : ''} climate. Popular choices include architectural shingles for their durability and aesthetic appeal, and ${cityData?.popularMaterials?.[0] || 'metal roofing'} which performs well in this area.`
+    },
+    {
+      question: `How long does a roof replacement take in ${neighborhood.name}?`,
+      answer: `Most ${neighborhood.name} roof replacements are completed in 1-3 days, depending on roof size and complexity. ${neighborhood.housingTypes.some(t => t.toLowerCase().includes('historic') || t.toLowerCase().includes('estate')) ? 'Larger estate homes or historic properties may require additional time.' : 'Standard single-family homes typically complete in 1-2 days.'}`
+    },
+    {
+      question: `Do I need permits for roofing work in ${neighborhood.name}?`,
+      answer: `Yes, roofing permits are typically required in ${neighborhood.city} for ${neighborhood.name} properties. ${neighborhood.roofingConsiderations.some(c => c.toLowerCase().includes('hoa')) ? 'Additionally, HOA approval may be required in this neighborhood.' : ''} Our connected contractors handle all permit requirements.`
+    },
+    {
+      question: `What should ${neighborhood.name} homeowners know about roof inspections?`,
+      answer: `${neighborhood.name} homeowners should schedule annual roof inspections, especially given ${neighborhood.roofingConsiderations[0]?.toLowerCase() || 'local weather conditions'}. With average home ages of ${neighborhood.avgHomeAge}, regular inspections can catch issues early and extend roof life.`
+    }
+  ];
+}
 
 interface PageProps {
   params: Promise<{ city: string; neighborhood: string }>;
@@ -81,6 +108,9 @@ export default async function NeighborhoodPage({ params }: PageProps) {
     { name: neighborhoodData.name, url: `https://instantroofestimate.ai/roof-estimate/${city}/${neighborhoodSlug}` },
   ];
 
+  // Generate FAQs
+  const faqs = generateNeighborhoodFAQs(neighborhoodData, cityData);
+
   // Local Business Schema
   const localBusinessSchema = {
     '@context': 'https://schema.org',
@@ -102,12 +132,30 @@ export default async function NeighborhoodPage({ params }: PageProps) {
     serviceType: 'Roof Replacement Estimates',
   };
 
+  // FAQ Schema for SEO
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <BreadcrumbSchema items={breadcrumbs} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="min-h-screen bg-slate-50">
@@ -301,6 +349,158 @@ export default async function NeighborhoodPage({ params }: PageProps) {
                           {zip}
                         </span>
                       ))}
+                    </div>
+                  </section>
+
+                  {/* Pricing Section */}
+                  {cityData && (
+                    <section className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                          <DollarSign className="w-6 h-6 text-green-600" />
+                        </div>
+                        <h2 className="text-2xl font-bold text-slate-900">
+                          Roof Replacement Costs in {neighborhoodData.name}
+                        </h2>
+                      </div>
+                      <p className="text-slate-700 mb-6">
+                        Based on {neighborhoodData.city} market data and typical {neighborhoodData.name} home sizes, here are estimated roof replacement costs for the area:
+                      </p>
+                      <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                        <div className="bg-slate-50 rounded-xl p-4 text-center border border-slate-200">
+                          <div className="text-sm font-medium text-slate-500 mb-1">Budget</div>
+                          <div className="text-2xl font-bold text-slate-900">${cityData.avgRoofCost.low.toLocaleString()}</div>
+                          <div className="text-xs text-slate-500 mt-1">3-tab shingles</div>
+                        </div>
+                        <div className="bg-blue-600 rounded-xl p-4 text-center text-white">
+                          <div className="text-sm font-medium text-blue-200 mb-1">Most Popular</div>
+                          <div className="text-2xl font-bold">${cityData.avgRoofCost.mid.toLocaleString()}</div>
+                          <div className="text-xs text-blue-200 mt-1">Architectural shingles</div>
+                        </div>
+                        <div className="bg-slate-50 rounded-xl p-4 text-center border border-slate-200">
+                          <div className="text-sm font-medium text-slate-500 mb-1">Premium</div>
+                          <div className="text-2xl font-bold text-slate-900">${cityData.avgRoofCost.high.toLocaleString()}</div>
+                          <div className="text-xs text-slate-500 mt-1">Designer/Premium</div>
+                        </div>
+                      </div>
+                      <p className="text-sm text-slate-500">
+                        *Estimates based on average {neighborhoodData.name} roof sizes. Your actual cost depends on roof size, pitch, and condition. Get your personalized estimate above.
+                      </p>
+                    </section>
+                  )}
+
+                  {/* Roofing Services Section */}
+                  <section className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                        <Wrench className="w-6 h-6 text-purple-600" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-slate-900">
+                        Roofing Services for {neighborhoodData.name} Homes
+                      </h2>
+                    </div>
+                    <p className="text-slate-700 mb-6">
+                      Our network of licensed roofing contractors serving {neighborhoodData.name} provides comprehensive services tailored to {neighborhoodData.housingTypes[0]} and other local home styles:
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-slate-900">Complete Roof Replacement</h4>
+                          <p className="text-sm text-slate-600">Full tear-off and installation of new roofing system</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-slate-900">Roof Repairs</h4>
+                          <p className="text-sm text-slate-600">Leak repairs, shingle replacement, and damage fixes</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-slate-900">Storm Damage Assessment</h4>
+                          <p className="text-sm text-slate-600">Insurance claim assistance and emergency repairs</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-slate-900">Free Roof Inspections</h4>
+                          <p className="text-sm text-slate-600">Comprehensive evaluation of your roof&apos;s condition</p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  {/* FAQ Section */}
+                  <section className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                        <HelpCircle className="w-6 h-6 text-orange-600" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-slate-900">
+                        {neighborhoodData.name} Roofing FAQs
+                      </h2>
+                    </div>
+                    <div className="space-y-4">
+                      {faqs.map((faq, i) => (
+                        <div key={i} className="border-b border-slate-100 pb-4 last:border-0 last:pb-0">
+                          <h3 className="font-semibold text-slate-900 mb-2">{faq.question}</h3>
+                          <p className="text-slate-600 text-sm leading-relaxed">{faq.answer}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+
+                  {/* Why Choose Us Section */}
+                  <section className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                        <Star className="w-6 h-6 text-yellow-600" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-slate-900">
+                        Why {neighborhoodData.name} Homeowners Choose Us
+                      </h2>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Clock className="w-5 h-5 text-blue-600" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-slate-900">Instant Estimates</h4>
+                          <p className="text-sm text-slate-600">Get accurate pricing in 60 seconds using satellite technology</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <DollarSign className="w-5 h-5 text-green-600" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-slate-900">100% Free</h4>
+                          <p className="text-sm text-slate-600">No cost, no obligation to get your roof estimate</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <MapPin className="w-5 h-5 text-purple-600" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-slate-900">Local Contractors</h4>
+                          <p className="text-sm text-slate-600">Connect with vetted {neighborhoodData.city} area roofers</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Shield className="w-5 h-5 text-orange-600" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-slate-900">Quality Guaranteed</h4>
+                          <p className="text-sm text-slate-600">Licensed, insured contractors with proven track records</p>
+                        </div>
+                      </div>
                     </div>
                   </section>
                 </div>
