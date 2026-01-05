@@ -36,6 +36,69 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily',
       priority: 0.8,
     },
+    // Roofing Materials Guide Pages
+    {
+      url: `${BASE_URL}/roofing-materials`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/roofing-materials/metal-roofing`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/roofing-materials/asphalt-shingles`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/roofing-materials/tile-roofing`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/roofing-materials/slate-roofing`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    // Service Pages
+    {
+      url: `${BASE_URL}/services`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/services/storm-damage`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/services/roof-repair`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/services/roof-inspection`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    // Comparison Pages
+    {
+      url: `${BASE_URL}/compare/metal-vs-shingles`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     {
       url: `${BASE_URL}/privacy-policy`,
       lastModified: STATIC_LAST_MOD,
