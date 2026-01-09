@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { AddressInput } from '@/components/AddressInput';
 import { FAQSection, faqData } from '@/components/FAQSection';
 import { FAQSchema } from '@/components/StructuredData';
+import { SEOContent } from '@/components/SEOContent';
 import { Shield, Clock, DollarSign, CheckCircle, Star, ArrowRight } from 'lucide-react';
 
 interface PlaceDetails {
@@ -217,6 +218,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* SEO Content Section */}
+      <SEOContent />
 
       {/* FAQ Section */}
       <FAQSection />
