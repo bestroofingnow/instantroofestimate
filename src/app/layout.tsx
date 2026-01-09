@@ -11,6 +11,7 @@ import {
   SoftwareApplicationSchema,
   ProductSchema,
 } from "@/components/StructuredData";
+import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -122,6 +123,8 @@ export default function RootLayout({
           `}
         </Script>
         {children}
+        {/* Exit Intent Popup - shows when user tries to leave */}
+        <ExitIntentPopup delay={10000} cookieDays={3} />
       </body>
     </html>
   );
