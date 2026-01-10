@@ -60,6 +60,8 @@ export {
   getSearchConsoleData,
   getRoofingKeywordOpportunities,
   isSearchConsoleConfigured,
+  getGoogleAuthUrl,
+  exchangeCodeForTokens,
 } from './searchConsole';
 
 // Brightdata

@@ -50,15 +50,16 @@ export async function GET(request: NextRequest) {
     const config = {
       googleSearchConsole: {
         configured: isSearchConsoleConfigured(),
-        envVar: 'GOOGLE_ACCESS_TOKEN',
+        envVars: ['GOOGLE_CLIENT_ID', 'GOOGLE_CLIENT_SECRET', 'GOOGLE_REFRESH_TOKEN'],
         description: 'Google Search Console API for keyword research',
         setupSteps: [
-          '1. Create a Google Cloud project',
-          '2. Enable the Search Console API',
-          '3. Create OAuth credentials or service account',
-          '4. Add the service account to your Search Console property',
-          '5. Set GOOGLE_ACCESS_TOKEN in your .env.local file',
+          '1. Add GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET to Vercel',
+          '2. Deploy the app',
+          '3. Visit /api/admin/google to complete OAuth and get refresh token',
+          '4. Add GOOGLE_REFRESH_TOKEN to Vercel',
+          '5. Redeploy',
         ],
+        oauthUrl: '/api/admin/google',
         docUrl: 'https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/authorizing',
       },
       brightdata: {
@@ -136,20 +137,20 @@ export async function GET(request: NextRequest) {
       config,
       systemStatus,
       envExample: `
-# Add these to your .env.local file:
-
-# Required for full functionality:
+# Required for blog automation:
 GEMINI_API_KEY=your_gemini_api_key
+BRIGHTDATA_API_KEY=your_brightdata_api_key
 ADMIN_SECRET=your_secure_admin_secret
 
-# Optional - enables keyword research:
-GOOGLE_ACCESS_TOKEN=your_google_oauth_token
+# Google Search Console (OAuth):
+GOOGLE_CLIENT_ID=your_client_id
+GOOGLE_CLIENT_SECRET=your_client_secret
+GOOGLE_REFRESH_TOKEN=get_from_oauth_flow
 
-# Optional - enables competitor analysis:
-BRIGHTDATA_API_KEY=your_brightdata_api_key
-BRIGHTDATA_ZONE=serp
+# Optional - PageSpeed insights:
+GOOGLE_PAGESPEED_API_KEY=your_pagespeed_key
 
-# Optional - enables stock photos:
+# Optional - stock photos:
 UNSPLASH_ACCESS_KEY=your_unsplash_key
 PEXELS_API_KEY=your_pexels_key
       `.trim(),
