@@ -5,24 +5,29 @@ import { ArrowRight, CheckCircle, AlertTriangle, Shield, Phone, Clock, FileText,
 import { BreadcrumbSchema } from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Storm & Hail Damage Roof Repair | Free Inspection | Instant Roof Estimate',
-  description: 'Storm damage roof repair and hail damage assessment. Free inspections, insurance claim assistance, and emergency roof repairs. Get your free estimate today.',
+  title: 'Storm & Hail Damage Roof Repair Charlotte NC | Free Inspection | Instant Roof Estimate',
+  description: 'Charlotte NC storm damage roof repair and hail damage assessment. Free inspections in Charlotte, Huntersville, Matthews, Concord & surrounding areas. Insurance claim assistance and 24/7 emergency roof repairs.',
   keywords: [
-    'storm damage roof repair',
-    'hail damage roof',
-    'roof storm damage',
-    'hail damage roof repair',
-    'roof damage insurance claim',
-    'emergency roof repair',
-    'wind damage roof',
-    'storm damage inspection',
-    'hail damage shingles',
-    'roof leak after storm',
-    'tornado roof damage',
-    'hurricane roof damage',
-    'roof insurance claim',
-    'storm damage contractor',
-    'hail damage assessment',
+    'storm damage roof repair Charlotte NC',
+    'hail damage roof Charlotte',
+    'roof storm damage Charlotte NC',
+    'hail damage roof repair Charlotte',
+    'roof damage insurance claim NC',
+    'emergency roof repair Charlotte',
+    'wind damage roof Charlotte NC',
+    'storm damage inspection Charlotte',
+    'hail damage shingles Charlotte',
+    'roof leak after storm Charlotte',
+    'Charlotte roof hail damage',
+    'Mecklenburg County storm damage',
+    'Charlotte metro roof repair',
+    'storm damage contractor Charlotte NC',
+    'hail damage assessment Charlotte',
+    'Huntersville storm damage roof',
+    'Matthews hail damage roof',
+    'Concord NC storm damage',
+    'Fort Mill SC roof repair',
+    'Lake Norman storm damage',
   ],
   openGraph: {
     title: 'Storm & Hail Damage Roof Repair | Free Inspection',
@@ -272,6 +277,51 @@ export default function StormDamagePage() {
               <div>
                 <div className="text-3xl font-bold text-blue-600">Licensed</div>
                 <div className="text-sm text-slate-600">& Insured</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Charlotte Metro Storm Info */}
+        <section className="py-12 bg-gradient-to-r from-blue-50 to-slate-50 border-b border-slate-200">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">
+                Storm Damage Roof Repair in Charlotte & Surrounding Areas
+              </h2>
+              <p className="text-slate-600 text-center mb-6">
+                The Charlotte metro area experiences <strong>40+ hail events</strong> and <strong>over 100 severe weather warnings</strong> annually.
+                From April through September, severe thunderstorms bring damaging hail, high winds, and heavy rain that can cause significant roof damage.
+              </p>
+              <div className="grid md:grid-cols-3 gap-4 text-center">
+                <div className="bg-white rounded-xl p-4 shadow-sm">
+                  <div className="text-2xl font-bold text-red-600">40+</div>
+                  <div className="text-sm text-slate-600">Hail Events Per Year</div>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-sm">
+                  <div className="text-2xl font-bold text-orange-600">Apr-Sep</div>
+                  <div className="text-sm text-slate-600">Peak Storm Season</div>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-sm">
+                  <div className="text-2xl font-bold text-blue-600">151+</div>
+                  <div className="text-sm text-slate-600">Hail Radar Detections</div>
+                </div>
+              </div>
+              <div className="mt-6 flex flex-wrap justify-center gap-2 text-sm">
+                <span className="text-slate-500">Serving:</span>
+                <Link href="/roof-estimate/state/north-carolina/charlotte" className="text-blue-600 hover:underline">Charlotte</Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/roof-estimate/state/north-carolina/huntersville" className="text-blue-600 hover:underline">Huntersville</Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/roof-estimate/state/north-carolina/matthews" className="text-blue-600 hover:underline">Matthews</Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/roof-estimate/state/north-carolina/concord" className="text-blue-600 hover:underline">Concord</Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/roof-estimate/state/south-carolina/fort-mill" className="text-blue-600 hover:underline">Fort Mill</Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/roof-estimate/state/north-carolina/mooresville" className="text-blue-600 hover:underline">Mooresville</Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/roof-estimate" className="text-blue-600 hover:underline">All Areas →</Link>
               </div>
             </div>
           </div>

@@ -358,6 +358,215 @@ export const cityExtendedData: Record<string, CityExtendedData> = {
     countyName: 'Union County',
     zipCodes: ['28110', '28111', '28112']
   },
+  'mint-hill-nc': {
+    slug: 'mint-hill-nc',
+    population: '28,000+',
+    foundedYear: '1900',
+    nickname: 'Small Town Feel',
+    neighborhoods: ['Downtown Mint Hill', 'Cheval', 'Olde Sycamore', 'Bain Creek', 'Lebanon Forest'],
+    landmarks: ['Veterans Memorial Park', 'Carl J. McEwen Historic Village', 'Mint Hill Town Hall', 'Bain Elementary'],
+    majorEmployers: ['Charlotte-Mecklenburg Schools', 'Local businesses', 'Healthcare sector', 'Retail'],
+    nearbyAreas: ['Charlotte', 'Matthews', 'Stallings', 'Indian Trail', 'Harrisburg'],
+    weatherStats: {
+      avgSummerHigh: '89°F',
+      avgWinterLow: '31°F',
+      annualRainfall: '43 inches',
+      snowfall: '3 inches annually',
+      stormSeason: 'April through September'
+    },
+    roofingChallenges: ['Larger lot properties', 'Mix of old and new construction', 'Rural-suburban transition', 'Storm debris from mature trees', 'Semi-rural accessibility'],
+    localFacts: ['Small-town atmosphere with big city access', 'Top-rated schools', 'Growing family community', 'Historic downtown village'],
+    countyName: 'Mecklenburg County',
+    zipCodes: ['28227']
+  },
+  'pineville-nc': {
+    slug: 'pineville-nc',
+    population: '10,000+',
+    foundedYear: '1873',
+    nickname: 'Gateway to Charlotte',
+    neighborhoods: ['Downtown Pineville', 'Carolina Place', 'Carmel Park', 'Sterling', 'Pinewood Forest'],
+    landmarks: ['Carolina Place Mall', 'Pineville Lake Park', 'Historic Main Street', 'McDowell Nature Preserve'],
+    majorEmployers: ['Carolina Place Mall retailers', 'Healthcare sector', 'Distribution centers', 'Retail sector'],
+    nearbyAreas: ['Charlotte', 'Matthews', 'Fort Mill', 'Ballantyne', 'South Charlotte'],
+    weatherStats: {
+      avgSummerHigh: '89°F',
+      avgWinterLow: '31°F',
+      annualRainfall: '43 inches',
+      snowfall: '3 inches annually',
+      stormSeason: 'April through September'
+    },
+    roofingChallenges: ['Commercial and residential mix', 'Older housing stock in historic areas', 'High traffic area considerations', 'Diverse architecture styles', 'Shopping center proximity'],
+    localFacts: ['Home to Carolina Place Mall', 'Historic railroad town', 'Gateway to South Carolina', 'Antique shopping destination'],
+    countyName: 'Mecklenburg County',
+    zipCodes: ['28134']
+  },
+  'belmont-nc': {
+    slug: 'belmont-nc',
+    population: '15,000+',
+    foundedYear: '1895',
+    nickname: 'Abbey Town',
+    neighborhoods: ['Downtown Belmont', 'South Point', 'McLean', 'Catawba Heights', 'Cramerton'],
+    landmarks: ['Belmont Abbey', 'Daniel Stowe Botanical Garden', 'Main Street Belmont', 'Stowe Park', 'Catawba River'],
+    majorEmployers: ['Belmont Abbey College', 'Gaston County Schools', 'Healthcare sector', 'Local retail'],
+    nearbyAreas: ['Charlotte', 'Gastonia', 'Mount Holly', 'Cramerton', 'McAdenville'],
+    weatherStats: {
+      avgSummerHigh: '88°F',
+      avgWinterLow: '30°F',
+      annualRainfall: '46 inches',
+      snowfall: '3 inches annually',
+      stormSeason: 'March through October'
+    },
+    roofingChallenges: ['Historic downtown preservation', 'Riverfront humidity', 'Abbey area regulations', 'Mix of Victorian and modern homes', 'Botanical garden area aesthetics'],
+    localFacts: ['Home to Belmont Abbey College', 'Revitalized Main Street', 'Daniel Stowe Botanical Garden nearby', 'Growing commuter suburb'],
+    countyName: 'Gaston County',
+    zipCodes: ['28012']
+  },
+  'mount-holly-nc': {
+    slug: 'mount-holly-nc',
+    population: '18,000+',
+    foundedYear: '1879',
+    nickname: 'Catawba River Town',
+    neighborhoods: ['Downtown Mount Holly', 'Mountain Island', 'Riverbend', 'Tuckaseegee', 'Lucia'],
+    landmarks: ['Historic Downtown', 'Catawba River', 'Mount Holly Community Park', 'Dutchmans Creek Greenway'],
+    majorEmployers: ['Gaston County Schools', 'Manufacturing sector', 'Distribution centers', 'Healthcare'],
+    nearbyAreas: ['Charlotte', 'Belmont', 'Gastonia', 'Cramerton', 'Stanley'],
+    weatherStats: {
+      avgSummerHigh: '88°F',
+      avgWinterLow: '30°F',
+      annualRainfall: '46 inches',
+      snowfall: '3 inches annually',
+      stormSeason: 'March through October'
+    },
+    roofingChallenges: ['Riverfront property moisture', 'Historic mill housing', 'Older home renovations', 'Industrial area considerations', 'Flood zone awareness'],
+    localFacts: ['Historic textile mill town', 'Catawba River access', 'Affordable Charlotte alternative', 'Growing downtown revitalization'],
+    countyName: 'Gaston County',
+    zipCodes: ['28120']
+  },
+  'waxhaw-nc': {
+    slug: 'waxhaw-nc',
+    population: '18,000+',
+    foundedYear: '1889',
+    nickname: 'Antique Capital',
+    neighborhoods: ['Downtown Waxhaw', 'Cureton', 'Providence Grove', 'Waxhaw Crossing', 'Millbridge'],
+    landmarks: ['Historic Downtown', 'Museum of the Waxhaws', 'Waxhaw Farmers Market', 'Antique shops', 'Cane Creek Park'],
+    majorEmployers: ['Union County Schools', 'Local retail', 'Healthcare', 'Professional services'],
+    nearbyAreas: ['Charlotte', 'Monroe', 'Weddington', 'Marvin', 'Wesley Chapel'],
+    weatherStats: {
+      avgSummerHigh: '89°F',
+      avgWinterLow: '30°F',
+      annualRainfall: '44 inches',
+      snowfall: '3 inches annually',
+      stormSeason: 'April through September'
+    },
+    roofingChallenges: ['Historic downtown preservation', 'Upscale subdivision standards', 'Large lot properties', 'HOA architectural requirements', 'Growing infrastructure'],
+    localFacts: ['Antique shopping destination', 'Andrew Jackson historic connection', 'Rapidly growing suburb', 'Top-rated Union County schools'],
+    countyName: 'Union County',
+    zipCodes: ['28173']
+  },
+  'weddington-nc': {
+    slug: 'weddington-nc',
+    population: '13,000+',
+    foundedYear: '1983',
+    nickname: 'Estate Community',
+    neighborhoods: ['Bromley', 'Weddington Chase', 'Highgate', 'Stratford on Providence', 'The Oaks'],
+    landmarks: ['Weddington Town Hall', 'Large estates', 'Horse farms', 'Weddington High School', 'Walking trails'],
+    majorEmployers: ['Union County Schools', 'Professional services', 'Home-based businesses', 'Agriculture'],
+    nearbyAreas: ['Charlotte', 'Matthews', 'Waxhaw', 'Marvin', 'Wesley Chapel'],
+    weatherStats: {
+      avgSummerHigh: '89°F',
+      avgWinterLow: '30°F',
+      annualRainfall: '44 inches',
+      snowfall: '3 inches annually',
+      stormSeason: 'April through September'
+    },
+    roofingChallenges: ['Large estate roofs', 'Premium material expectations', 'Strict architectural standards', 'Rural road accessibility', 'High-end aesthetic requirements'],
+    localFacts: ['One of wealthiest suburbs in Charlotte', 'Minimum 1-acre lots', 'Top-rated schools', 'Equestrian community'],
+    countyName: 'Union County',
+    zipCodes: ['28104', '28173']
+  },
+  'stallings-nc': {
+    slug: 'stallings-nc',
+    population: '18,000+',
+    foundedYear: '1975',
+    nickname: 'Growing Community',
+    neighborhoods: ['Stallings Town Center', 'Stonebrook', 'Heritage', 'Stevens Grove', 'Brookhaven'],
+    landmarks: ['Stallings Municipal Complex', 'Stallings Park', 'Town Center', 'Greenways'],
+    majorEmployers: ['Union County Schools', 'Retail sector', 'Healthcare', 'Professional services'],
+    nearbyAreas: ['Charlotte', 'Matthews', 'Indian Trail', 'Monroe', 'Mint Hill'],
+    weatherStats: {
+      avgSummerHigh: '89°F',
+      avgWinterLow: '31°F',
+      annualRainfall: '44 inches',
+      snowfall: '3 inches annually',
+      stormSeason: 'April through September'
+    },
+    roofingChallenges: ['Rapid new construction', 'Subdivision HOA requirements', 'Growing infrastructure', 'New development warranties', 'Diverse housing types'],
+    localFacts: ['Fastest growing town in Union County', 'Family-oriented community', 'New town center development', 'Excellent schools'],
+    countyName: 'Union County',
+    zipCodes: ['28104', '28079']
+  },
+  'harrisburg-nc': {
+    slug: 'harrisburg-nc',
+    population: '20,000+',
+    foundedYear: '1973',
+    nickname: 'Crossroads Town',
+    neighborhoods: ['Town Center', 'Rocky River', 'Patriots Landing', 'Harrisburg Estates', 'Caldwell Station'],
+    landmarks: ['Harrisburg Town Center', 'Pharr Mill Plantation', 'Harrisburg Park', 'Rocky River area'],
+    majorEmployers: ['Cabarrus County Schools', 'Charlotte Motor Speedway area', 'Retail sector', 'Healthcare'],
+    nearbyAreas: ['Charlotte', 'Concord', 'Mint Hill', 'Kannapolis', 'University City'],
+    weatherStats: {
+      avgSummerHigh: '88°F',
+      avgWinterLow: '31°F',
+      annualRainfall: '44 inches',
+      snowfall: '3 inches annually',
+      stormSeason: 'April through September'
+    },
+    roofingChallenges: ['Rapid growth construction', 'I-485 corridor development', 'Mix of new and older homes', 'Speedway area traffic', 'Growing subdivision demands'],
+    localFacts: ['One of fastest-growing towns in NC', 'Near Charlotte Motor Speedway', 'I-485 access', 'Top-rated Cabarrus schools'],
+    countyName: 'Cabarrus County',
+    zipCodes: ['28075']
+  },
+  'tega-cay-sc': {
+    slug: 'tega-cay-sc',
+    population: '13,000+',
+    foundedYear: '1982',
+    nickname: 'City by the Lake',
+    neighborhoods: ['Tega Cay Peninsula', 'Reflection Pointe', 'Baxter Village', 'Lake Ridge', 'The Sanctuary'],
+    landmarks: ['Tega Cay Golf Club', 'Lake Wylie', 'Nature trails', 'Community Center', 'Waterfront parks'],
+    majorEmployers: ['York County Schools', 'Golf and recreation', 'Professional services', 'Charlotte commuters'],
+    nearbyAreas: ['Charlotte', 'Fort Mill', 'Rock Hill', 'Lake Wylie', 'Pineville'],
+    weatherStats: {
+      avgSummerHigh: '90°F',
+      avgWinterLow: '31°F',
+      annualRainfall: '45 inches',
+      snowfall: '2 inches annually',
+      stormSeason: 'April through October'
+    },
+    roofingChallenges: ['Lakefront property requirements', 'SC building codes', 'High humidity near water', 'Premium home standards', 'Golf course community aesthetics'],
+    localFacts: ['Peninsula community on Lake Wylie', 'Golf course community', 'Strong sense of community', 'Easy Charlotte commute'],
+    countyName: 'York County',
+    zipCodes: ['29708', '29715']
+  },
+  'lake-wylie-sc': {
+    slug: 'lake-wylie-sc',
+    population: '12,000+',
+    nickname: 'Lakeside Living',
+    neighborhoods: ['Palisades', 'River Hills', 'McLean', 'Lake Wylie Shores', 'Reflection Pointe'],
+    landmarks: ['Lake Wylie', 'Ebenezer Park', 'Allison Creek area', 'Boat launches', 'Waterfront dining'],
+    majorEmployers: ['York County Schools', 'Marine services', 'Hospitality', 'Professional services'],
+    nearbyAreas: ['Charlotte', 'Tega Cay', 'Rock Hill', 'Belmont', 'Fort Mill'],
+    weatherStats: {
+      avgSummerHigh: '90°F',
+      avgWinterLow: '31°F',
+      annualRainfall: '45 inches',
+      snowfall: '2 inches annually',
+      stormSeason: 'April through October'
+    },
+    roofingChallenges: ['Waterfront property moisture', 'Dock and boat house roofing', 'Lake effect humidity', 'Premium waterfront homes', 'Cross-state contractor licensing'],
+    localFacts: ['Scenic lakefront community', 'Popular boating destination', 'Catawba River lake', 'Charlotte bedroom community'],
+    countyName: 'York County',
+    zipCodes: ['29710']
+  },
   // Major cities outside Charlotte metro
   'houston-tx': {
     slug: 'houston-tx',

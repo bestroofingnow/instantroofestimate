@@ -194,8 +194,116 @@ ${climateAdvice.stormNote} Call right away to stop water damage from getting wor
 • Care about their reputation in ${city}
 • Know what ${region} homes look like
 • Will be around for future repairs`
-    }
+    },
+    // AEO-optimized questions for voice search and AI assistants
+    ...getRegionSpecificFaqs(city, stateAbbr, region, climate, avgRoofCost, seasonalNotes)
   ];
+}
+
+// Additional region-specific FAQs for AEO optimization
+function getRegionSpecificFaqs(
+  city: string,
+  stateAbbr: string,
+  region: string,
+  climate: string,
+  avgRoofCost: { low: number; mid: number; high: number },
+  seasonalNotes: string
+): LocationFaq[] {
+  const faqs: LocationFaq[] = [];
+
+  // Charlotte Metro specific FAQs
+  if (region === 'Charlotte Metro' || city === 'Charlotte') {
+    faqs.push(
+      {
+        question: `How do I know if my ${city} roof has hail damage?`,
+        answer: `Signs of hail damage on ${city} roofs include:
+• Dents or dimples in metal flashing and vents
+• Missing or cracked shingles
+• Circular marks where granules are knocked off
+• Soft spots that feel like bruised fruit
+• Damaged gutters or downspouts
+
+After a ${city} area storm, check from the ground with binoculars. Better yet, call a local roofer for a free inspection—they know exactly what to look for and can document damage for your insurance claim.`
+      },
+      {
+        question: `Will my insurance cover roof replacement in ${city}, ${stateAbbr}?`,
+        answer: `Yes, most homeowner's insurance in ${city} covers roof damage from storms, hail, and wind. Here's what to know:
+
+• File your claim within 1-2 years of the damage (check your policy)
+• Take photos of any damage right away
+• Get a professional inspection to document everything
+• Many ${city} roofers work directly with insurance companies
+• Your deductible typically applies (usually $500-$2,500)
+
+The ${region} area sees frequent storm damage, so insurance companies are familiar with these claims. A good ${city} roofer will help you through the entire process.`
+      },
+      {
+        question: `How long does a roof replacement take in ${city}?`,
+        answer: `Most ${city} roof replacements take 1-3 days for average-sized homes. Here's a breakdown:
+
+• Small roof (under 1,500 sq ft): 1 day
+• Average roof (1,500-2,500 sq ft): 1-2 days
+• Large roof (over 2,500 sq ft): 2-3 days
+• Complex roofs with multiple levels: 3-5 days
+
+Weather can cause delays during ${city}'s storm season (April-September). Most crews work 7 AM to 6 PM. You can usually stay in your home during the work.`
+      },
+      {
+        question: `What time of year is best to replace a roof in ${city}?`,
+        answer: `The best times for roof replacement in ${city} are:
+
+**Best seasons:**
+• Spring (March-May): Moderate temps, before storm season peaks
+• Fall (September-November): Low humidity, mild weather
+
+**Good but busier:**
+• Summer: Works fine, but afternoon storms may cause delays
+
+**Avoid if possible:**
+• Late June-August: Peak storm season, roofers are busy with repairs
+
+You can replace a roof any time in ${city}—the mild climate allows year-round work. Just know that after major storms, roofers get very busy.`
+      },
+      {
+        question: `Are ${city} roof prices higher than the national average?`,
+        answer: `${city} roof replacement costs (${formatCurrency(avgRoofCost.low)} to ${formatCurrency(avgRoofCost.high)}) are close to the national average.
+
+**Why ${city} prices are reasonable:**
+• Competitive market with many quality roofers
+• Lower labor costs than Northeast or West Coast
+• Year-round installation weather reduces seasonal price spikes
+
+**What can increase your cost:**
+• Large or steep roofs
+• Premium materials (metal, slate)
+• Storm season demand
+• Multiple layers to remove
+
+Getting 3+ quotes from ${city} roofers is the best way to ensure a fair price.`
+      }
+    );
+  }
+
+  // Add storm-related FAQ for all humid subtropical areas
+  if (climate.includes('humid subtropical')) {
+    faqs.push(
+      {
+        question: `What should I do after a storm damages my roof in ${city}?`,
+        answer: `After storm damage to your ${city} roof, follow these steps:
+
+1. **Stay safe** - Don't climb on the roof yourself
+2. **Document damage** - Take photos from the ground
+3. **Prevent more damage** - Call for emergency tarping if needed
+4. **Contact your insurance** - File a claim within 24-48 hours
+5. **Get a professional inspection** - Most ${city} roofers offer free storm damage inspections
+6. **Get written estimates** - Compare at least 2-3 quotes
+
+Many ${city} roofers specialize in storm damage and work directly with insurance adjusters. Don't wait—water damage gets worse quickly.`
+      }
+    );
+  }
+
+  return faqs;
 }
 
 function getClimateAdvice(climate: string): {
@@ -208,12 +316,12 @@ function getClimateAdvice(climate: string): {
 } {
   if (climate.includes('humid subtropical')) {
     return {
-      materialReason: 'These handle heat, humidity, and bad storms well.',
-      insuranceNote: 'Storm damage claims happen a lot here because of thunderstorms and sometimes hurricanes.',
-      lifespanImpact: 'can wear roofs faster because of heat and humidity',
-      costImpact: 'You may pay more for materials that fight heat and algae, but they last longer.',
-      energyAdvice: 'Light-colored roofs really help keep your home cool in the hot summers here.',
-      stormNote: 'Bad storms and hurricanes mean you need fast help.'
+      materialReason: 'These handle heat, humidity, hail, and severe thunderstorms well. Impact-resistant shingles are popular for storm protection.',
+      insuranceNote: 'Storm and hail damage claims are very common here—the area sees 40+ hail events yearly. Most insurance covers storm damage, and many roofers help file claims.',
+      lifespanImpact: 'can wear roofs faster because of heat, humidity, and frequent storms',
+      costImpact: 'You may pay more for impact-resistant materials, but they often qualify for insurance discounts and last longer.',
+      energyAdvice: 'Light-colored and reflective roofs help reduce cooling costs during hot, humid summers.',
+      stormNote: 'Severe thunderstorms with hail and high winds are common April through September. Many roofers offer 24/7 emergency tarping.'
     };
   } else if (climate.includes('desert') || climate.includes('hot')) {
     return {
