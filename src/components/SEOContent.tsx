@@ -529,6 +529,177 @@ export function SEOContent() {
                 <li><strong>Pay last part:</strong> Only pay the rest after you are happy with the work</li>
               </ul>
             </ExpandableSection>
+
+            <ExpandableSection title="What Are the Different Roof Types?">
+              <p>
+                <strong>Your roof type affects cost, durability, and how your home looks.</strong> Here are the most common roof styles in the United States:
+              </p>
+              <h4>Hip Roof</h4>
+              <p>
+                A hip roof has slopes on all four sides. All sides come together at the top in a ridge. This is one of the most popular roof types in America. Hip roofs are very strong against wind and storms because the angled sides push wind over the roof instead of catching it.
+              </p>
+              <p>
+                <strong>Cost:</strong> Hip roofs cost 10-15% more than gable roofs because they have more surface area and more complex framing. They work great in areas with hurricanes, high winds, or heavy snow.
+              </p>
+              <h4>Gable Roof</h4>
+              <p>
+                A gable roof has two sloping sides that meet at a ridge at the top. The ends form a triangle shape called a gable. This is the most common roof type in the US. Gable roofs are simple to build and give good attic space for ventilation and storage.
+              </p>
+              <p>
+                <strong>Cost:</strong> Gable roofs are the most affordable to build. The simple shape uses less material and takes less labor. But the flat gable ends can catch wind, so they need extra bracing in storm-prone areas.
+              </p>
+              <h4>What Is the Rake on a Roof?</h4>
+              <p>
+                The rake is the sloped edge of a gable roof. It runs from the eave (bottom edge) to the ridge (top). The rake needs proper flashing and drip edge to keep water from getting under the shingles. A rake overhang of 6-12 inches helps protect your walls from rain.
+              </p>
+              <h4>What Is a Roof Cricket?</h4>
+              <p>
+                A roof cricket is a small peaked structure built behind a chimney or other roof feature. Its job is to divert water and debris away from the back of the chimney. Without a cricket, water pools behind the chimney and causes leaks. Building codes require a cricket on chimneys wider than 30 inches.
+              </p>
+              <h4>Flat Roof</h4>
+              <p>
+                Flat roofs are not truly flat. They have a slight slope (usually 1/4 inch per foot) to drain water. Common on commercial buildings, they are also used on modern homes and additions. Flat roofs cost $4-$10 per square foot and use materials like TPO, EPDM rubber, or modified bitumen.
+              </p>
+              <h4>Mansard Roof</h4>
+              <p>
+                A mansard roof has four sides, each with two slopes. The lower slope is very steep and the upper slope is nearly flat. This design creates usable living space in the attic. Mansard roofs are common on French-style homes and older buildings. They cost more due to their complex shape.
+              </p>
+              <h4>Which Roof Type Is Best?</h4>
+              <p>
+                The best roof type depends on your climate, budget, and home style. Hip roofs are best for storm areas. Gable roofs are the most affordable. Our free estimate works with any roof type. Enter your address and we measure your exact roof shape from satellite photos.
+              </p>
+            </ExpandableSection>
+
+            <ExpandableSection title="How to Figure Out Your Roof Pitch">
+              <p>
+                <strong>Roof pitch is how steep your roof is.</strong> It is written as a ratio like 6/12, which means the roof rises 6 inches for every 12 inches of horizontal distance. Knowing your pitch matters because steeper roofs cost more to work on.
+              </p>
+              <h4>Common Roof Pitches</h4>
+              <ul>
+                <li><strong>Low pitch (2/12 to 4/12):</strong> Almost flat. Easier and safer to work on. Common on modern homes, additions, and porches. Needs special roofing materials to prevent leaks.</li>
+                <li><strong>Standard pitch (5/12 to 7/12):</strong> The most common range. Works with most roofing materials. Good balance of drainage and walkability.</li>
+                <li><strong>Steep pitch (8/12 to 12/12):</strong> Very steep. Sheds water and snow quickly. Looks dramatic. Costs more because workers need special safety gear and harnesses.</li>
+                <li><strong>Very steep (over 12/12):</strong> Found on church steeples, Victorian homes, and A-frame cabins. Expensive to roof because of extreme safety requirements.</li>
+              </ul>
+              <h4>How to Calculate Roof Pitch</h4>
+              <p>
+                You can measure your roof pitch from inside your attic:
+              </p>
+              <ul>
+                <li><strong>Step 1:</strong> Place a level against a rafter in your attic</li>
+                <li><strong>Step 2:</strong> Mark 12 inches on the level from where it touches the rafter</li>
+                <li><strong>Step 3:</strong> Measure straight up from that 12-inch mark to the rafter</li>
+                <li><strong>Step 4:</strong> That measurement is your rise. A 6-inch rise means you have a 6/12 pitch</li>
+              </ul>
+              <h4>Why Roof Pitch Affects Your Cost</h4>
+              <p>
+                Steeper roofs have more surface area. A 12/12 pitch roof has about 40% more surface area than a flat roof over the same floor plan. More area means more materials. Steep roofs also need safety equipment and take longer to install. Our satellite estimate tool already accounts for your roof pitch when calculating your price.
+              </p>
+              <h4>Roof Slope vs Roof Pitch</h4>
+              <p>
+                People use "roof slope" and "roof pitch" to mean the same thing. Technically, slope is the ratio of rise to run (like 6:12), while pitch is the ratio of rise to the full span. In everyday use, they mean the same thing. A 6/12 slope is a moderate roof that most roofers handle easily.
+              </p>
+            </ExpandableSection>
+
+            <ExpandableSection title="What Is a Roofing Square?">
+              <p>
+                <strong>A roofing square is 100 square feet of roof area.</strong> Roofers use this unit to price jobs. When a roofer says your roof is "25 squares," that means 2,500 square feet of roof surface.
+              </p>
+              <h4>How to Calculate Roofing Squares</h4>
+              <p>
+                To figure out how many squares your roof has:
+              </p>
+              <ul>
+                <li><strong>Step 1:</strong> Measure the length and width of each roof section</li>
+                <li><strong>Step 2:</strong> Multiply length by width to get square feet for each section</li>
+                <li><strong>Step 3:</strong> Add all sections together for total square feet</li>
+                <li><strong>Step 4:</strong> Divide by 100 to get the number of roofing squares</li>
+              </ul>
+              <p>
+                <strong>Example:</strong> A roof with two sections of 1,200 sq ft each = 2,400 sq ft total = 24 roofing squares.
+              </p>
+              <h4>How Many Shingles in a Square?</h4>
+              <p>
+                One roofing square needs 3 bundles of standard three-tab shingles. Architectural (dimensional) shingles may need 4-5 bundles per square because they are thicker. Each bundle covers about 33 square feet.
+              </p>
+              <h4>Cost Per Roofing Square</h4>
+              <p>
+                Here is what each material costs per roofing square (100 sq ft):
+              </p>
+              <ul>
+                <li><strong>Basic three-tab shingles:</strong> $300-$500 per square</li>
+                <li><strong>Architectural shingles:</strong> $400-$700 per square</li>
+                <li><strong>Metal roofing:</strong> $800-$1,600 per square</li>
+                <li><strong>Tile roofing:</strong> $1,000-$2,000 per square</li>
+                <li><strong>Slate roofing:</strong> $1,500-$3,000 per square</li>
+              </ul>
+              <p>
+                These prices include materials only. Add labor ($200-$500 per square) and tear-off ($100-$200 per square) for the full picture. Our free estimate calculates your total cost including everything.
+              </p>
+            </ExpandableSection>
+
+            <ExpandableSection title="Metal Roof Installation: What to Know">
+              <p>
+                <strong>Metal roofing is growing fast in popularity.</strong> It now accounts for about 17% of the residential roofing market. Metal roofs last 40-70 years and can save you money on energy bills. Here is what you need to know about installing one.
+              </p>
+              <h4>Types of Metal Roofing</h4>
+              <ul>
+                <li><strong>Standing seam:</strong> The premium choice. Panels lock together with raised seams. Very waterproof. Costs $10-$16 per sq ft.</li>
+                <li><strong>Corrugated metal:</strong> Wavy panels. More affordable at $5-$10 per sq ft. Common on barns and modern farmhouse-style homes.</li>
+                <li><strong>Metal shingles:</strong> Look like regular shingles but made from metal. $8-$14 per sq ft. Good if you want the metal benefits with a traditional look.</li>
+                <li><strong>Steel roofing:</strong> The most common metal. Coated with zinc (galvanized) or aluminum-zinc (Galvalume) to resist rust. Strong and affordable.</li>
+                <li><strong>Aluminum roofing:</strong> Lighter than steel. Does not rust. Great for coastal areas with salt air. Costs a bit more than steel.</li>
+              </ul>
+              <h4>Can You Install Metal Over Shingles?</h4>
+              <p>
+                Yes, in many cases you can install metal roofing over existing asphalt shingles. This saves the cost of tear-off ($1-$3 per sq ft). But check your local building codes first. Some areas require removing old shingles. Also, the old roof must be in decent shape with no rot underneath.
+              </p>
+              <h4>How Long Does Metal Roof Installation Take?</h4>
+              <p>
+                A metal roof takes 2-5 days to install on an average home. Standing seam takes longer because each panel must be precisely measured and fastened. Corrugated panels go up faster. Weather delays are possible since metal is slippery when wet.
+              </p>
+              <h4>Metal Roof Pros and Cons</h4>
+              <p>
+                <strong>Pros:</strong> Lasts 40-70 years, reflects heat (saves on cooling), withstands high winds, fire resistant, lightweight, recyclable, increases home value.
+              </p>
+              <p>
+                <strong>Cons:</strong> Higher upfront cost, can be noisy in rain (insulation helps), dents from large hail, needs special tools to cut, expansion and contraction from heat.
+              </p>
+              <p>
+                Get your free roof estimate to see metal roofing prices for your home. Our tool shows you asphalt, metal, and other options side by side.
+              </p>
+            </ExpandableSection>
+
+            <ExpandableSection title="Basic Roof Repairs You Should Know About">
+              <p>
+                <strong>Not every roof problem needs a full replacement.</strong> Some repairs are simple and affordable. Here are the most common roof repairs and when you should handle them.
+              </p>
+              <h4>Patching a Roof</h4>
+              <p>
+                Roof patching fixes small damaged areas. A roofer removes the damaged shingles, checks the wood underneath, and installs new shingles. A small patch job costs $150-$500. This works when damage is limited to one small area and the rest of the roof is in good shape.
+              </p>
+              <h4>How to Tarp a Roof in an Emergency</h4>
+              <p>
+                If your roof gets damaged in a storm, a tarp can prevent further water damage until a roofer arrives:
+              </p>
+              <ul>
+                <li>Use a heavy-duty tarp that extends at least 4 feet past the damaged area</li>
+                <li>Secure it with 2x4 boards screwed into the roof deck (not just nailed to shingles)</li>
+                <li>Make sure water runs off the tarp and does not pool on it</li>
+                <li>This is a temporary fix. Get a roofer out as soon as possible</li>
+              </ul>
+              <h4>Fixing Roof Leaks</h4>
+              <p>
+                The most common leak spots are around flashings (metal pieces around chimneys, vents, and valleys). Often the fix is replacing old caulk or damaged flashing. This costs $200-$600. Leaks around vent pipes are usually a $100-$300 fix with a new rubber boot.
+              </p>
+              <h4>When to Repair vs Replace</h4>
+              <p>
+                Repair makes sense when damage is less than 30% of your roof, the roof is under 15 years old, and the underlying wood is solid. Replace when damage is widespread, the roof is over 20 years old, or repairs would cost more than half a new roof.
+              </p>
+              <p>
+                Get your free estimate to compare repair costs vs replacement costs for your home.
+              </p>
+            </ExpandableSection>
           </div>
 
           {/* Final CTA */}

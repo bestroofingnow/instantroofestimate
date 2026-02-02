@@ -50,6 +50,30 @@ const defaultFaqs: FAQ[] = [
     question: 'Should I fix my roof or get a new one?',
     answer: 'Fix your roof if:\n• The damage is in one small area\n• Your roof is less than 15 years old\n• Less than 30% needs work\n\nGet a new roof if:\n• Damage is all over\n• Your roof is over 20 years old\n• You keep getting leaks\n• Repairs would cost more than half a new roof\n\nOur free estimate helps you decide.',
   },
+  {
+    question: 'What is a hip roof vs a gable roof?',
+    answer: 'A hip roof has slopes on all four sides that meet at a ridge on top. A gable roof has two sloping sides with a triangle shape at each end.\n\nHip roofs are stronger in high winds and storms. Gable roofs cost less and give more attic space. Most American homes have one of these two types. Our satellite tool measures both accurately.',
+  },
+  {
+    question: 'What is a roofing square and how do I calculate it?',
+    answer: 'A roofing square equals 100 square feet of roof area.\n\n1. Measure your roof length and width\n2. Multiply to get total square feet\n3. Divide by 100 to get squares\n\nExample: A 2,000 sq ft roof = 20 squares. You need about 3 bundles of shingles per square. Our tool measures your roof from satellite photos so you do not have to climb up.',
+  },
+  {
+    question: 'How do I figure out my roof pitch?',
+    answer: 'Roof pitch is how steep your roof is. It is written as a ratio like 6/12 (rises 6 inches for every 12 inches horizontal).\n\nTo measure from your attic:\n• Hold a level against a rafter\n• Mark 12 inches on the level\n• Measure straight up to the rafter\n\nCommon pitches: 4/12 (low), 6/12 (standard), 8/12 or more (steep). Steeper roofs cost more. Our estimate already factors in your pitch.',
+  },
+  {
+    question: 'Can you paint a metal roof?',
+    answer: 'Yes! Use acrylic latex paint made for metal roofs. Clean the roof first, remove any rust, and apply a primer.\n\nPainting extends your metal roof life by 10 or more years and can lower energy bills by reflecting heat. Professional painting costs $1 to $3 per square foot. Most metal roofs need repainting every 10 to 15 years.',
+  },
+  {
+    question: 'How long does a metal roof last?',
+    answer: 'Metal roofs last 40 to 70 years with proper care:\n\n• Steel roofing: 40 to 60 years\n• Aluminum roofing: 50 to 70 years\n• Copper roofing: 70 to 100+ years\n• Zinc roofing: 80 to 100+ years\n\nMetal roofs last 2 to 3 times longer than asphalt shingles. The higher upfront cost often makes them cheaper per year.',
+  },
+  {
+    question: 'How do I measure my roof for shingles?',
+    answer: 'You can estimate from the ground:\n\n1. Measure your house footprint (length times width)\n2. Multiply by a pitch factor (1.05 for low, 1.15 for standard, 1.3 for steep)\n3. Add 10% for waste\n4. Divide by 100 to get roofing squares\n5. Multiply squares by 3 for bundles needed\n\nOr skip the math. Our free tool measures your roof from satellite photos in 60 seconds.',
+  },
 ];
 
 interface FAQSectionProps {

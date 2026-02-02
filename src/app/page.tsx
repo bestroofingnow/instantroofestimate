@@ -219,6 +219,49 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Roof Types Section */}
+      <section aria-labelledby="roof-types-heading" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 id="roof-types-heading" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                We Estimate All Roof Types
+              </h2>
+              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                Our satellite tool measures any roof shape. Get accurate prices for your home.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              {[
+                { name: 'Hip Roof', desc: 'Slopes on all 4 sides. Best for high winds.', icon: '🏠' },
+                { name: 'Gable Roof', desc: 'Two sloping sides. Most common and affordable.', icon: '🏡' },
+                { name: 'Flat Roof', desc: 'Modern style. Great for additions.', icon: '🏢' },
+                { name: 'Metal Roof', desc: 'Lasts 40-70 years. Energy efficient.', icon: '🔩' },
+              ].map((type, i) => (
+                <div key={i} className="bg-slate-50 rounded-xl p-5 text-center hover:shadow-md transition-shadow">
+                  <span className="text-3xl mb-3 block" aria-hidden="true">{type.icon}</span>
+                  <h3 className="font-semibold text-slate-900 mb-1">{type.name}</h3>
+                  <p className="text-sm text-slate-600">{type.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <p className="text-slate-600 mb-4">
+                Plus asphalt shingles, tile, slate, wood shakes, and synthetic roofing.
+              </p>
+              <a
+                href="/roofing-materials"
+                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-semibold"
+              >
+                Compare all roofing materials <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SEO Content Section */}
       <SEOContent />
 
